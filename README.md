@@ -45,15 +45,13 @@ docker run --name redis -p 6379:6379 -d redis
 
 ./mvnw spring-boot:run
 📁 Example Redis Entity
-java
-Copy
-Edit
-@RedisHash("User")
-public class User {
+
+@RedisHash("Product")
+public class Product {
     @Id
     private String id;
     private String name;
-    private String email;
+    private String Price;
 }
 🧠 Example Repository
 
@@ -72,7 +70,7 @@ curl -X POST http://localhost:8080/users \
      -H "Content-Type: application/json" \
      -d '{"name": "Alice", "email": "alice@example.com"}'
 ✅ Output: Redis Keys
-Redis keys are automatically stored with the prefix "User:", and all data is managed in Redis itself.
+Redis keys are automatically stored with the prefix "Product:", and all data is managed in Redis itself.
 
 
 
